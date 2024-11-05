@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load livereload_tags %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi From Raunak</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    {% livereload_script %}
+  </head>
+  <body>
+    <div class="login-container">
+      <form class="login" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Review me</h2>
+        <hr />
+        {% if messages %}
+        <div class="alert alert-primary" role="alert">
+          {% for message in messages %} {{ message }} {% endfor %}
+        </div>
+        {% endif %}
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            id="name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <input
+            type="text"
+            name="message"
+            class="form-control"
+            id="message"
+            required
+          />
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </body>
+</html>
