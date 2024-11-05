@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('thankyou/', thankyou, name='thankyou'),
+    path('api/reviews/', ReviewList.as_view(),
+         name='review-list'),  # Add this line for the API
 ]
 
 

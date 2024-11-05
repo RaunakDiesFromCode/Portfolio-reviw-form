@@ -1,6 +1,14 @@
 from django.shortcuts import redirect, render
-
 from .models import *
+from rest_framework import generics
+from .models import reviewForm
+from .serializers import reviewFormSerializer
+
+
+class ReviewList(generics.ListAPIView):
+    queryset = reviewForm.objects.all()
+    serializer_class = reviewFormSerializer
+
 
 # Create your views here.
 
